@@ -1,0 +1,4 @@
+H:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\UseGps\bin\UseGps-debug-unaligned.apk : \
+H:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\UseGps\bin\UseGps.ap_ \
+H:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\UseGps\bin\classes.dex \
+H:\ANDROID_ANH_NHAN\ANDOIRD_SDK_KHONG_XOA\android-sdk\tools\support\annotations.jar \
