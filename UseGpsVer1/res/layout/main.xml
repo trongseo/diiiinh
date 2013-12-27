@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+	android:id="@+id/widget38"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView
+	android:id="@+id/txtView"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="T&#7885;a &#273;&#7897; m&#7899;i nh&#7853;t" />
+<Button
+	android:id="@+id/btnRun"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Ch&#7841;y" />
+<Button
+	android:id="@+id/btnStop"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="T&#7855;t" />
+<TextView
+	android:id="@+id/widget38"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Số điện thoại" />
+<EditText
+	android:id="@+id/txtSDT"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text=""
+	android:textSize="18sp" />
+<Button
+	android:id="@+id/btnSendIME"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Cập nhật" />
+</TableLayout>
+
+
