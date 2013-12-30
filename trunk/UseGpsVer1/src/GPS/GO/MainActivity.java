@@ -1,7 +1,9 @@
 package GPS.GO;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -12,7 +14,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,12 +32,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+
+   
 
 public class MainActivity extends Activity
 {
@@ -46,6 +53,7 @@ public class MainActivity extends Activity
       Button btnSendIME;
     Thread thread;
     TextView txtView;
+   TextView lblSDT;
      EditText txtSDT ;
     int wait_tamp =1;
     double lat_end =0;
@@ -65,10 +73,84 @@ public class MainActivity extends Activity
         txtView = (TextView)findViewById(R.id.txtView);
          txtSDT = (EditText)findViewById(R.id.txtSDT);
     btnSendIME = (Button)findViewById(R.id.btnSendIME);
+    lblSDT= (TextView)findViewById(R.id.lblSDT);
+     while(true)
+     {
+          boolean btr = CheckInternet(getApplicationContext());
+         if(btr ==true)
+         {
+              txtView.setText("connectok");
+              break;
+         }   else
+        {
+            txtView.setText("Wifi hoặc 3G chưa bật!");
+
+        }
+        
+     }
+                          
+                       
          btnRun.setOnClickListener(new View.OnClickListener() {			
 			@SuppressWarnings("unchecked")
 			@Override
 			public void onClick(View v) {
+                         //   runLoop()
+                        }
+		});
+         
+         btnStop.setOnClickListener(new View.OnClickListener() {			
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onClick(View v) {
+                            if( thread != null ) {
+                         thread.interrupt();
+                          btnRun.setEnabled(true);
+                           txtView.setText("..");
+                        }
+                           
+    Intent intent = new Intent(Intent.ACTION_MAIN);
+    intent.addCategory(Intent.CATEGORY_HOME);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
+    System.exit(0);
+  
+			}
+		});
+         
+         
+           btnSendIME.setOnClickListener(new View.OnClickListener() {			
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onClick(View v) {
+                         postDataSDTIME(txtSDT.getText()+"-"+ getMyPhoneNumber());
+                               //   postData(gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber());
+                           txtView.setText(txtSDT.getText()+"-"+ getMyPhoneNumber() );
+			}
+		});
+           
+        
+         //Toast.makeText(this, pupu, Toast.LENGTH_SHORT).show();
+       runLoop();   
+    }
+    
+
+    @Override
+public void onAttachedToWindow() {
+
+  this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+  super.onAttachedToWindow();
+
+}
+    @Override
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+     if (keyCode == KeyEvent.KEYCODE_BACK) {
+     //preventing default implementation previous to android.os.Build.VERSION_CODES.ECLAIR
+     return true;
+     }
+     return super.onKeyDown(keyCode, event);    
+}
+    private  void runLoop()
+    {
                           boolean btr = CheckInternet(getApplicationContext());
                           if(btr ==true)
                             txtView.setText("connectok");
@@ -104,6 +186,16 @@ public class MainActivity extends Activity
                          {
                               postData(gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber());
                                 lat_end = gps[0];
+                         }else
+                         {
+                              boolean btr = CheckInternet(getApplicationContext());
+                          if(btr ==true)
+                            txtView.setText("connectok");
+                          else
+                          {
+                              txtView.setText("Wifi hoặc 3G chưa bật!");
+                             
+                          }
                          }
                         txtView.setText(""+gps[0] + "-" + gps[1] + "-" + fDate );
                                         
@@ -117,65 +209,16 @@ public class MainActivity extends Activity
                                             //txtView.setText(""+i);
                                         }
                                     } catch (InterruptedException e) {
-                                        e.printStackTrace();
+                                      System.out.print(e.toString());
                                     }
                                 }
                             };
 
                             thread.start();
         
-			}
-		});
-         
-         btnStop.setOnClickListener(new View.OnClickListener() {			
-			@SuppressWarnings("unchecked")
-			@Override
-			public void onClick(View v) {
-                            if( thread != null ) {
-                         thread.interrupt();
-                          btnRun.setEnabled(true);
-                           txtView.setText("..");
-                        }
-			}
-		});
-         
-         
-           btnSendIME.setOnClickListener(new View.OnClickListener() {			
-			@SuppressWarnings("unchecked")
-			@Override
-			public void onClick(View v) {
-                         postDataSDTIME(txtSDT.getText()+"-"+ getMyPhoneNumber());
-                               //   postData(gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber());
-                           txtView.setText(txtSDT.getText()+"-"+ getMyPhoneNumber() );
-			}
-		});
-           
-         /*
-        Date cDate = new Date();
-        String fDate = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(cDate);
-       for(int ix=1;ix<2;ix++)
-       {
-           if(isbreak==1) break;
-            //btnReg.setText(getMyPhoneNumber()+"-"+fDate);
-           try {
-               Thread.sleep(5000);
-
-               double[] gps = new double[2];
-               gps = getGPS();
-               String pupu = postData(gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber());
-
-        Toast.makeText(this, gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber(), Toast.LENGTH_SHORT).show();
-           } catch (InterruptedException ex) {
-               
-           }
-          
-            
-       }
-        
-        */
-         //Toast.makeText(this, pupu, Toast.LENGTH_SHORT).show();
-      
-    }
+}
+    
+    
     public boolean CheckInternet(Context ctx) {
         ConnectivityManager connManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
 NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
@@ -288,9 +331,10 @@ if(bv == Build.VERSION_CODES.FROYO)
            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
            
         try { 
-             httpclient.execute(httppost);
-           
-            
+            HttpResponse response = httpclient.execute(httppost);
+           // Toast.makeText(this, TextHelper.GetText(response), Toast.LENGTH_SHORT).show();
+       //  txtSDT.setText(TextHelper.GetText(response));
+         lblSDT.setText(TextHelper.GetText(response));
               return "1";
                } catch (IOException e) {
                // TODO Auto-generated catch block
@@ -298,7 +342,7 @@ if(bv == Build.VERSION_CODES.FROYO)
            }
         return "";
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, null, ex);
              Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
          return "";
@@ -307,13 +351,13 @@ if(bv == Build.VERSION_CODES.FROYO)
         try {
             HttpClient httpclient = new DefaultHttpClient();
            HttpPost httppost = new HttpPost("http://203.210.208.121/dinhvi/postlocation.aspx"); 
-    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
            nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
            
         try { 
-             httpclient.execute(httppost);
-           
+          HttpResponse response=   httpclient.execute(httppost);
+            txtView.setText(TextHelper.GetText(response));
             //HttpResponse response = httpclient.execute(httppost);
     
 ////                InputStream is = response.getEntity().getContent();
@@ -331,10 +375,12 @@ if(bv == Build.VERSION_CODES.FROYO)
               return "1";
                } catch (IOException e) {
                // TODO Auto-generated catch block
+                     txtView.setText("client:fail");
            }
         return "";
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, null, ex);
+          //  Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, null, ex);
+             txtView.setText("client2:fail");
         }
          return "";
 } 
