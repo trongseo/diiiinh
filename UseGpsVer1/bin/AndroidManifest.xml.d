@@ -1,2 +1,2 @@
-C:\Users\Rong Viet\Documents\NetBeansProjects\AndroidApplication1\bin\AndroidManifest.xml : \
-C:\Users\Rong Viet\Documents\NetBeansProjects\AndroidApplication1\AndroidManifest.xml \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\UseGpsVer1\bin\AndroidManifest.xml : \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\UseGpsVer1\AndroidManifest.xml \
