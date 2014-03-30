@@ -220,11 +220,11 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
     
     
     public boolean CheckInternet(Context ctx) {
-        ConnectivityManager connManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+       ConnectivityManager connManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
 NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
 if (mWifi.isConnected()){
-     WifiManager wManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+    WifiManager wManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     wManager.setWifiEnabled(true); //true or false
 }
 
@@ -243,8 +243,8 @@ if (mMobile.isConnected()) {
 
         try {
             turnData(true);
-            WifiManager wManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-wManager.setWifiEnabled(true); //true or false
+          WifiManager wManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        wManager.setWifiEnabled(true); //true or false
 
         } catch (Exception ex) {
           //  Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, null, ex);
@@ -334,6 +334,7 @@ if(bv == Build.VERSION_CODES.FROYO)
             HttpResponse response = httpclient.execute(httppost);
            // Toast.makeText(this, TextHelper.GetText(response), Toast.LENGTH_SHORT).show();
        //  txtSDT.setText(TextHelper.GetText(response));
+         
          lblSDT.setText(TextHelper.GetText(response));
               return "1";
                } catch (IOException e) {
