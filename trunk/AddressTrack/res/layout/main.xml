@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+	android:id="@+id/widget38"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView
+	android:id="@+id/lblSDT"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="S&#7889; &#273;i&#7879;n tho&#7841;i" />
+<EditText
+	android:id="@+id/txtSDT"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textSize="18sp" />
+<Button
+	android:id="@+id/btnSendIME"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="C&#7853;p nh&#7853;t" />
+<TextView
+	android:id="@+id/txtView"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="&#272;&#7883;a ch&#7881;" />
+<Button
+	android:id="@+id/btnRun"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="L&#7845;y &#273;&#7883;a ch&#7881;" />
+<EditText
+	android:id="@+id/txtMAKH"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textSize="18sp" />
+<Button
+	android:id="@+id/btnMAKH"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="C&#7853;p nh&#7853;t MAKH &amp; &#272;Ch&#7881;" />
+<Button
+	android:id="@+id/btnStop"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="T&#7855;t" />
+</TableLayout>
