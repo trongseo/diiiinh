@@ -11,6 +11,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -54,6 +55,7 @@ public class MainActivity extends Activity
       Button btnMAKH;
       Button btnStop;
       Button btnSendIME;
+     Button btnHide;
     Thread thread;
     TextView txtView;
    TextView lblSDT;
@@ -75,6 +77,7 @@ public class MainActivity extends Activity
         btnRun = (Button)findViewById(R.id.btnRun);
         btnMAKH = (Button)findViewById(R.id.btnMAKH);
         btnStop = (Button)findViewById(R.id.btnStop);
+        btnHide = (Button)findViewById(R.id.btnHide);
         txtView = (TextView)findViewById(R.id.txtView);
          txtSDT = (EditText)findViewById(R.id.txtSDT);
          txtMAKH= (EditText)findViewById(R.id.txtMAKH);
@@ -96,6 +99,16 @@ public class MainActivity extends Activity
      }
                           
                        
+                       btnHide.setOnClickListener(new View.OnClickListener() {			
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onClick(View v) {
+                           Intent startMain = new Intent(Intent.ACTION_MAIN);
+startMain.addCategory(Intent.CATEGORY_HOME);
+startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(startMain);
+                        }
+		});
          btnRun.setOnClickListener(new View.OnClickListener() {			
 			@SuppressWarnings("unchecked")
 			@Override
@@ -108,6 +121,15 @@ public class MainActivity extends Activity
 			@Override
 			public void onClick(View v) {
                            runPOST_MAKH_ADD();
+                        }
+		});
+          txtView.setOnClickListener(new View.OnClickListener() {			
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onClick(View v) {
+                            String myurl="https://www.google.com/maps/preview?q=Tran+Hung+Dao,+Ph%C3%BA+Qu%E1%BB%91c,+Kien+Giang,+Vietnam";
+                           Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myurl));
+startActivity(browserIntent);
                         }
 		});
          btnStop.setOnClickListener(new View.OnClickListener() {			
@@ -176,7 +198,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
                         String fDate = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(cDate);
                          double[] gps = new double[2];
                          gps = getGPS();
-                         if( (gps[0]!=0)&&(gps[0]!=lat_end))
+                         if( 1==1)//(gps[0]!=0)&&(gps[0]!=lat_end)
                          {
                              String resultadd= postData(gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber());
                                 lat_end = gps[0];
@@ -210,7 +232,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
                         String fDate = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(cDate);
                          double[] gps = new double[2];
                          gps = getGPS();
-                         if( (gps[0]!=0)&&(gps[0]!=lat_end))
+                         if(1==1 )//(gps[0]!=0)&&(gps[0]!=lat_end)
                          {
                              String resultadd= getData(gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber());
                                 lat_end = gps[0];

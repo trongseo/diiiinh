@@ -12,7 +12,9 @@ public final class R {
     }
     public static final class id {
         public static final int btnRun=0x7f040002;
+        public static final int btnSendIME=0x7f040005;
         public static final int btnStop=0x7f040003;
+        public static final int txtSDT=0x7f040004;
         public static final int txtView=0x7f040001;
         public static final int widget38=0x7f040000;
     }
