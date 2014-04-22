@@ -3,11 +3,13 @@ package Firstdroid.Tutorial.Gps;
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.BufferedInputStream;
@@ -35,11 +37,15 @@ public class MainActivity extends Activity
     private int isbreak;
      Button btnRun;
       Button btnStop;
+      Button btnSendIME;
     Thread thread;
     TextView txtView;
+     EditText txtSDT ;
     int wait_tamp =1;
     double lat_end =0;
     double lng_end=0;
+   double longitude = 0;
+    double    latitude = 0;
     int milisecode = 1000;
     int WAIT_SECOND=5*milisecode;
     /** Called when the activity is first created. */
@@ -51,7 +57,8 @@ public class MainActivity extends Activity
         btnRun = (Button)findViewById(R.id.btnRun);
         btnStop = (Button)findViewById(R.id.btnStop);
         txtView = (TextView)findViewById(R.id.txtView);
-     
+         txtSDT = (EditText)findViewById(R.id.txtSDT);
+    btnSendIME = (Button)findViewById(R.id.btnSendIME);
          btnRun.setOnClickListener(new View.OnClickListener() {			
 			@SuppressWarnings("unchecked")
 			@Override
@@ -117,6 +124,16 @@ public class MainActivity extends Activity
 		});
          
          
+           btnSendIME.setOnClickListener(new View.OnClickListener() {			
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onClick(View v) {
+                         postDataSDTIME(txtSDT.getText()+"-"+ getMyPhoneNumber());
+                               //   postData(gps[0] + "-" + gps[1] + "-" + fDate + "-" + getMyPhoneNumber());
+                           txtView.setText(txtSDT.getText()+"-"+ getMyPhoneNumber() );
+			}
+		});
+           
          /*
         Date cDate = new Date();
         String fDate = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(cDate);
@@ -151,11 +168,32 @@ public class MainActivity extends Activity
         return timlum;
 
     }
-     
+     public String postDataSDTIME(String valuepost)   {
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+           HttpPost httppost = new HttpPost("http://203.210.208.121:8003/dinhvi/postime.aspx"); 
+    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+           nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
+           httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+           
+        try { 
+             httpclient.execute(httppost);
+           
+            
+              return "1";
+               } catch (IOException e) {
+               // TODO Auto-generated catch block
+           }
+        return "";
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return "";
+} 
       public String postData(String valuepost)   {
         try {
             HttpClient httpclient = new DefaultHttpClient();
-           HttpPost httppost = new HttpPost("http://nuocsachtayninh.vn/itemimage/uploadfile/postlocation.aspx"); 
+           HttpPost httppost = new HttpPost("http://203.210.208.121:8003/dinhvi/postlocation.aspx"); 
     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
            nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -187,7 +225,7 @@ public class MainActivity extends Activity
         }
          return "";
 } 
-      
+     
     private double[] getGPS() {
         LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         List<String> providers = lm.getProviders(true);
@@ -210,6 +248,7 @@ public class MainActivity extends Activity
             gps[0] = l.getLatitude();
             gps[1] = l.getLongitude();
         }
+      
         return gps;
     }
     

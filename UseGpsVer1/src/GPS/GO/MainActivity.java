@@ -51,6 +51,7 @@ public class MainActivity extends Activity
      Button btnRun;
       Button btnStop;
       Button btnSendIME;
+     Button btnHide;
     Thread thread;
     TextView txtView;
    TextView lblSDT;
@@ -69,6 +70,7 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         btnRun = (Button)findViewById(R.id.btnRun);
+        btnHide= (Button)findViewById(R.id.btnHide);
         btnStop = (Button)findViewById(R.id.btnStop);
         txtView = (TextView)findViewById(R.id.txtView);
          txtSDT = (EditText)findViewById(R.id.txtSDT);
@@ -117,7 +119,16 @@ public class MainActivity extends Activity
 			}
 		});
          
-         
+           btnHide.setOnClickListener(new View.OnClickListener() {			
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onClick(View v) {
+                           Intent startMain = new Intent(Intent.ACTION_MAIN);
+startMain.addCategory(Intent.CATEGORY_HOME);
+startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(startMain);
+                        }
+		});
            btnSendIME.setOnClickListener(new View.OnClickListener() {			
 			@SuppressWarnings("unchecked")
 			@Override

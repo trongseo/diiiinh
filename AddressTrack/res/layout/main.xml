@@ -40,6 +40,12 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="C&#7853;p nh&#7853;t MAKH &amp; &#272;Ch&#7881;" />
+        <Button
+	android:id="@+id/btnHide"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#7848;n" />
+
 <Button
 	android:id="@+id/btnStop"
 	android:layout_width="wrap_content"
