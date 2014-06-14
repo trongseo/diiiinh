@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:25
+-keep class HereNowVN.Track.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:33
+-keep class HereNowVN.Track.MySecretCodeReceiver { <init>(...); }
+
