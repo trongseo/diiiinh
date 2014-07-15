@@ -1,0 +1,7 @@
+C:\Users\User\Downloads\WindowsService_Src\WindowsService\WindowsService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Downloads\WindowsService_Src\WindowsService\WindowsService\obj\Debug\WindowsService.WindowsService.resources
+C:\Users\User\Downloads\WindowsService_Src\WindowsService\WindowsService\obj\Debug\WindowsService.csproj.GenerateResource.Cache
+C:\Users\User\Downloads\WindowsService_Src\WindowsService\WindowsService\bin\Debug\SMS_GSM.exe
+C:\Users\User\Downloads\WindowsService_Src\WindowsService\WindowsService\bin\Debug\SMS_GSM.pdb
+C:\Users\User\Downloads\WindowsService_Src\WindowsService\WindowsService\obj\Debug\SMS_GSM.exe
+C:\Users\User\Downloads\WindowsService_Src\WindowsService\WindowsService\obj\Debug\SMS_GSM.pdb

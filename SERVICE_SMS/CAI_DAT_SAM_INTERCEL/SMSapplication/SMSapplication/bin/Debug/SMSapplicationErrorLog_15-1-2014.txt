@@ -1,0 +1,5 @@
+1/15/2014 11:15:41 AM ==> Access to the port 'COM20' is denied.
+1/15/2014 11:15:41 AM ==> Access to the port 'COM20' is denied.
+1/15/2014 11:28:12 AM ==> Access to the port 'COM20' is denied.
+1/15/2014 11:52:46 AM ==> Response received is incomplete.
+1/15/2014 2:28:47 PM ==> Response received is incomplete.
