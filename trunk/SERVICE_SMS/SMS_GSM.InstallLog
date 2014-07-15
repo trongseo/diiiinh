@@ -1,0 +1,16 @@
+﻿Installing assembly 'D:\PROJECT_ANDROID_MAP_SMS\SERVICE_SMS\SMS_GSM.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\PROJECT_ANDROID_MAP_SMS\SERVICE_SMS\SMS_GSM.exe
+   logfile = D:\PROJECT_ANDROID_MAP_SMS\SERVICE_SMS\SMS_GSM.InstallLog
+Installing service My Windows Service...
+Creating EventLog source My Windows Service in log Application...
+Rolling back assembly 'D:\PROJECT_ANDROID_MAP_SMS\SERVICE_SMS\SMS_GSM.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\PROJECT_ANDROID_MAP_SMS\SERVICE_SMS\SMS_GSM.exe
+   logfile = D:\PROJECT_ANDROID_MAP_SMS\SERVICE_SMS\SMS_GSM.InstallLog
+Restoring event log to previous state for source My Windows Service.
+An exception occurred during the Rollback phase of the System.Diagnostics.EventLogInstaller installer.
+System.Security.SecurityException: The source was not found, but some or all event logs could not be searched.  Inaccessible logs: Security.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
