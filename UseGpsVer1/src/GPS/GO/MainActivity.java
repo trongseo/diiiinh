@@ -63,10 +63,14 @@ public class MainActivity extends Activity
     double    latitude = 0;
     int milisecode = 1000;
     int WAIT_SECOND=5*milisecode;
+   //String ippost="113.161.225.12";
+  
+    String ippost="203.210.208.121";
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         btnRun = (Button)findViewById(R.id.btnRun);
@@ -336,7 +340,7 @@ if(bv == Build.VERSION_CODES.FROYO)
      public String postDataSDTIME(String valuepost)   {
         try {
             HttpClient httpclient = new DefaultHttpClient();
-           HttpPost httppost = new HttpPost("http://203.210.208.121/dinhvi/postime.aspx"); 
+           HttpPost httppost = new HttpPost("http://"+ippost+"/dinhvi/postime.aspx"); 
     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
            nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -362,7 +366,7 @@ if(bv == Build.VERSION_CODES.FROYO)
       public String postData(String valuepost)   {
         try {
             HttpClient httpclient = new DefaultHttpClient();
-           HttpPost httppost = new HttpPost("http://203.210.208.121/dinhvi/postlocation.aspx"); 
+           HttpPost httppost = new HttpPost("http://"+ippost+"/dinhvi/postlocation.aspx"); 
     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
            nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
