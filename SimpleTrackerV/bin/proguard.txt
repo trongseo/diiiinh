@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:13
+-keep class Simple.TrackerV.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:20
+-keep class Simple.TrackerV.MySecretCodeReceiver { <init>(...); }
+

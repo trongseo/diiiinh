@@ -1,0 +1,22 @@
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes.dex : \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\BootUpReceiver.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\BuildConfig.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\GPSTracker$1.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\GPSTracker$2.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\GPSTracker.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\HttpFileUpload.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\MainActivity$1.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\MainActivity$2.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\MainActivity$3.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\MainActivity$4.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\MainActivity$5.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\MainActivity$6.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\MainActivity.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\R$attr.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\R$drawable.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\R$id.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\R$layout.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\R$string.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\R.class \
+D:\ANDROID_ANH_NHAN\PROJECT_ANDROID_MAP_SMS\ANDROID\SimpleTracker\bin\classes\Simple\Tracker\TextHelper.class \
+D:\ANDROID_ANH_NHAN\ANDOIRD_SDK_KHONG_XOA\android-sdk\tools\support\annotations.jar \

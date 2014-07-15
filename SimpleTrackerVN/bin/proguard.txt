@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:20
+-keep class Simple.TrackerdVN.BootUpReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:28
+-keep class Simple.TrackerdVN.MainActivity { <init>(...); }
+
