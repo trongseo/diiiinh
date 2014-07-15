@@ -16,8 +16,7 @@ public class MySecretCodeReceiver extends BroadcastReceiver {
         
         if(intent.getAction().equals("android.provider.Telephony.SECRET_CODE")) {
            PackageManager p = context.getPackageManager();
-  p.setComponentEnabledSetting(MainActivity.cpN , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-
+            p.setComponentEnabledSetting(MainActivity.cpN , PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
             //Intent i = new Intent(context, MainActivity.class);
            // i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
           //  context.startActivity(intent);
