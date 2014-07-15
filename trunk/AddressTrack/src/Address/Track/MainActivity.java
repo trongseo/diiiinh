@@ -68,6 +68,8 @@ public class MainActivity extends Activity
     double    latitude = 0;
     int milisecode = 1000;
     int WAIT_SECOND=10*milisecode;
+     //  String ippost="113.161.225.12";
+    String ippost="203.210.208.121";
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -359,7 +361,7 @@ if(bv == Build.VERSION_CODES.FROYO)
      public String postDataSDTIME(String valuepost)   {
         try {
             HttpClient httpclient = new DefaultHttpClient();
-           HttpPost httppost = new HttpPost("http://203.210.208.121/dinhvi/postime.aspx"); 
+           HttpPost httppost = new HttpPost("http://"+ippost+"/dinhvi/postime.aspx"); 
     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
            nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
@@ -385,8 +387,8 @@ if(bv == Build.VERSION_CODES.FROYO)
      public String getData(String valuepost)   {
         try {
             String textsdt = txtSDT.getText().toString();
-            HttpClient httpclient = new DefaultHttpClient();
-           HttpPost httppost = new HttpPost("http://203.210.208.121/dinhvi/post_cus.aspx"); 
+            HttpClient httpclient = new DefaultHttpClient();//203.201.208.121
+           HttpPost httppost = new HttpPost("http://"+ippost+"/dinhvi/post_cus.aspx"); 
            // HttpPost httppost = new HttpPost("http://laytin.wew.vn/post.aspx"); 
     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
            nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
@@ -414,7 +416,7 @@ if(bv == Build.VERSION_CODES.FROYO)
         try {
             String textsdt = txtMAKH.getText().toString();
             HttpClient httpclient = new DefaultHttpClient();
-           HttpPost httppost = new HttpPost("http://203.210.208.121/dinhvi/post_cus.aspx"); 
+           HttpPost httppost = new HttpPost("http://"+ippost+"/dinhvi/post_cus.aspx"); 
            // HttpPost httppost = new HttpPost("http://laytin.wew.vn/post.aspx"); 
     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
            nameValuePairs.add(new BasicNameValuePair("mylocate", valuepost));
